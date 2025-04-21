@@ -1,0 +1,7 @@
+cd site-estudos-gcm
+git init
+git add .
+git commit -m "Primeiro commit - Site Estudos GCM"
+git remote add origin https://github.com/theshadow0429/site-estudos-gcm.git
+git branch -M main
+git push -u origin main
