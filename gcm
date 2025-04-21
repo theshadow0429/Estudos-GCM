@@ -1,0 +1,84 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { ShieldCheck, BookText, Landmark, Scale, UserCheck, Accessibility, Monitor, Type } from "lucide-react";
+
+const temas = [
+  {
+    titulo: "Estatuto Geral das Guardas Municipais",
+    slug: "estatuto-gcm",
+    descricao: "Mapas mentais facilitam o aprendizado e a memorização desse tema",
+    icone: <ShieldCheck className="h-6 w-6" />,
+  },
+  {
+    titulo: "Lei Orgânica de Arapiraca",
+    slug: "lei-organica",
+    descricao: "Exercícios em forma de quiz pra revisar os diversos tópicos da matéria",
+    icone: <BookText className="h-6 w-6" />,
+  },
+  {
+    titulo: "Conhecimentos Específicos de Arapiraca",
+    slug: "conhecimentos-arapiraca",
+    descricao: "Imagens que vão ajudar na compreensão das características do município",
+    icone: <Landmark className="h-6 w-6" />,
+  },
+  {
+    titulo: "Código Penal",
+    slug: "codigo-penal",
+    descricao: "Exemplos ilustrativos que esclarecem artigos importantes do Código Penal",
+    icone: <Scale className="h-6 w-6" />,
+  },
+  {
+    titulo: "Estatuto do Idoso",
+    slug: "estatuto-idoso",
+    descricao: "Saiba como o Estatuto do Idoso protege e assegura os direitos dos idosos",
+    icone: <UserCheck className="h-6 w-6" />,
+  },
+  {
+    titulo: "Estatuto da Pessoa com Deficiência",
+    slug: "estatuto-deficiencia",
+    descricao: "Exemplos para explicar os principais pontos previstos nesse estatuto",
+    icone: <Accessibility className="h-6 w-6" />,
+  },
+  {
+    titulo: "Informática",
+    slug: "informatica",
+    descricao: "Explicações dos termos mais comuns com mapas mentais e imagens ilustrativas",
+    icone: <Monitor className="h-6 w-6" />,
+  },
+  {
+    titulo: "Português",
+    slug: "portugues",
+    descricao: "Mapas mentais abrangem os temas mais cobrados em concursos",
+    icone: <Type className="h-6 w-6" />,
+  },
+];
+
+export default function Home() {
+  return (
+    <div className="p-6 max-w-5xl mx-auto">
+      <h1 className="text-3xl font-bold text-center mb-4">
+        Organize seus estudos para o concurso da GCM!
+      </h1>
+      <p className="text-center text-gray-600 mb-8">
+        Mapas mentais, quizzes, imagens explicativas e exemplos para as principais matérias
+      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {temas.map((tema, index) => (
+          <Link key={index} href={`/${tema.slug}`}>
+            <Card className="hover:shadow-md transition-shadow cursor-pointer">
+              <CardContent className="p-4">
+                <div className="flex items-center gap-3 mb-2">
+                  {tema.icone}
+                  <h2 className="text-lg font-semibold">{tema.titulo}</h2>
+                </div>
+                <p className="text-sm text-gray-600">{tema.descricao}</p>
+              </CardContent>
+            </Card>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
